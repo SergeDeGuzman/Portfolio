@@ -1,0 +1,17 @@
+/* Minimal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0a0014;
+  color: white;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
