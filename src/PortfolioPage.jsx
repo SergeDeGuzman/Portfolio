@@ -2,6 +2,7 @@ import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Header from "./Header";
 import { useState } from "react";
 import Hero3D from "./Hero3D";
+import Contact from "./Contact";
 
 export default function App() {
   const projects = [
@@ -222,7 +223,7 @@ const [selectedImage, setSelectedImage] = useState(null);
               src={cert.src}
               alt={cert.alt}
             />
-            <p className="card-title">{cert.desc}</p>
+            <p className="card-title flicker">{cert.desc}</p>
             </div>
             </div>
           ))}
@@ -236,11 +237,10 @@ const [selectedImage, setSelectedImage] = useState(null);
         </div>
       )}
     </section>
-    
-      
-      
-      
 
+
+      {/* Contact Section */}
+      <Contact />
 
       {/* Footer */}
       <footer className="footer">

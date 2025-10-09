@@ -12,7 +12,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
     return(
-      <header className="sm:px-16 px-6 w-full flex justify-center fixed navbar">
+      <header className="sm:px-16 w-full flex justify-center fixed navbar">
       <div className={`z-50 transition-colors duration-500 ${
         scrolled ?   "bg-transparent nav-container" : "80 backdrop-blur-md shadow-md nav-container"
       }`}>
