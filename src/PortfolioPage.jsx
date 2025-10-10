@@ -1,8 +1,10 @@
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import Header from "./Header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero3D from "./Hero3D";
 import Contact from "./Contact";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function App() {
   const projects = [
@@ -71,17 +73,20 @@ const [selectedImage, setSelectedImage] = useState(null);
     }
   ];
 
+  useEffect(() => {
+  AOS.init({ duration: 1000, once: false, mirror: true, anchorPlacement: "top-left" }); // 1000ms animation, only once
+}, []);
+
   return (
     <div className="relative z-0 bg-primary portfolio">
       <Header />
-
       {/* Hero Section */}
      <Hero3D />
 
   
       {/* About Section */}
       <div className="section-container">
-      <section className="section about">
+      <section className="section about" id="about" data-aos="fade-up">
         <div className="section-header">
           <h2>Introduction</h2>
           <h1>Overview</h1>
@@ -94,7 +99,7 @@ const [selectedImage, setSelectedImage] = useState(null);
       </section>
       
       {/* Tech Stack Section */}
-      <section className="section tech-stack">
+      <section className="section tech-stack" data-aos="fade-left">
         <div className="section-header">
           <h2>Skills</h2>
           <h1>Tech Stacks</h1>
@@ -112,14 +117,14 @@ const [selectedImage, setSelectedImage] = useState(null);
       </section>
 
       {/* Work Experience Section */}
-      <section className="section experience">
+      <section className="section experience" id="work" data-aos="fade-right">
         <div className="section-header">
           <h2>Career</h2>
           <h1>Work Experience</h1>
         </div>
         <div className="glass">
         <div className="experience-list">
-          <div className="experience-item">
+          <div className="experience-item" data-aos="fade-up" data-aos-delay="100">
             <h2>Information Technology Intern</h2>
             <h3>Nordic Heel Unlimited, Inc.</h3>
             <span className="period">January 2025 – February 2025</span>
@@ -132,7 +137,7 @@ const [selectedImage, setSelectedImage] = useState(null);
               <li>Used PHP programming language, HTML5, CSS3, and phpMyAdmin.</li>
             </ul>
           </div>
-          <div className="experience-item">
+          <div className="experience-item" data-aos="fade-up" data-aos-delay="200">
             <h2>Work Immersion Trainee, IT Department</h2>
             <h3>Torres Technology Center Corporation.</h3>
             <span className="period">November 2019 – December 2019</span>
@@ -146,7 +151,7 @@ const [selectedImage, setSelectedImage] = useState(null);
       </section>
 
       {/* Project Section */}
-      <section className="section project">
+      <section className="section project" data-aos="fade-up">
   <div className="section-header">
     <h2>Showcase</h2>
     <h1>My Projects</h1>
@@ -154,7 +159,7 @@ const [selectedImage, setSelectedImage] = useState(null);
   <div className="glass">
   <div className="project-grid">
     {projects.map((project, index) => (
-      <div key={index} className="project-card">
+      <div key={index} className="project-card" data-aos="zoom-in" data-aos-delay={index * 100}>
         
         {/* ✅ Conditional render for image or video */}
         {project.src.endsWith(".mp4") ? (
@@ -204,12 +209,8 @@ const [selectedImage, setSelectedImage] = useState(null);
 </section>
 </div>
 
-      {/* TEST */} 
-   
-
-
       {/* Achievements Section */}
-      <section className="section achievements">
+      <section className="section achievements" data-aos="fade-up">
         <div className="section-header">
           <h2>Milestones</h2>
           <h1>Achievements & Certifications</h1>
@@ -240,10 +241,10 @@ const [selectedImage, setSelectedImage] = useState(null);
 
 
       {/* Contact Section */}
-      <Contact />
+      <Contact data-aos="fade-up"/>
 
       {/* Footer */}
-      <footer className="footer">
+      <footer className="footer" >
         <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
         <div className="socials">
           <a href="#"><FaFacebook /></a>

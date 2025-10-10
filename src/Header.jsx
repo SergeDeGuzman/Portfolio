@@ -16,14 +16,14 @@ export default function Header() {
       <div className={`z-50 transition-colors duration-500 ${
         scrolled ?   "bg-transparent nav-container" : "80 backdrop-blur-md shadow-md nav-container"
       }`}>
-        <div className="logo">Serge De Guzman</div>
+        <a href="#hero" className="logo">Serge De Guzman</a>
         <div className="menu-toggle" onClick={() => setIsOpen(!isOpen)}>
           &#9776;
         </div>
         <nav className={`nav-links ${isOpen ? "active" : ""}`}>
           <a href="#about">About</a>
           <a href="#work">Work</a>
-          <a href="#blog">Contact</a>
+          <a href="#contact">Contact</a>
         </nav>
         {/* <a href="#contact" className="cta-btn">
           Let’s Talk

@@ -1,4 +1,3 @@
-// Hero3D.jsx
 import React, { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
@@ -48,7 +47,7 @@ function Model({ url }) {
 
 export default function Hero3D() {
   return (
-    <section className="hero">
+    <section className="hero" id="hero" data-aos="fade-down">
       <div className="hero-content">
         <h1>
           Hi, I'm <span className="highlight">Serge De Guzman</span>
@@ -71,7 +70,7 @@ export default function Hero3D() {
       </div>
 
       <div className="hero-model">
-        <Canvas camera={{ position: [0, 1, 10], fov: 60 }}>
+        <Canvas camera={{ position: [0, 1, 10], fov: 65 }}>
           <ambientLight intensity={1} />
           <directionalLight position={[10, 5, 10]} intensity={2} />
           <Model url="/models/Model5.glb" />

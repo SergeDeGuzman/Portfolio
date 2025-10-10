@@ -1,5 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { useRef, useState } from "react";
+import ParticleOrb from "./ParticleOrb";
 
 export default function Contact() {
   const form = useRef();
@@ -28,12 +29,11 @@ export default function Contact() {
   
 
   return (
-    <section className="section contact">
-      <div className="section-header">
+    <section className="section contact" id="contact" data-aos="fade-up">
+      <div className="section-header connect">
         <h2>Connect</h2>
         <h1>Contact Me</h1>
       </div>
-    
       <div className="contact-container">
         <form ref={form} onSubmit={sendEmail} className="contact-form">
           <div className="form-group subject">
@@ -85,6 +85,10 @@ export default function Contact() {
             Send Message
           </button>
         </form>
+        {/* Particle Animation beside the form */}
+        <div className="particle-side">
+          <ParticleOrb hue={180} total={300} size={120} />
+        </div>
       </div>
     </section>
   );
