@@ -1,10 +1,25 @@
 import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { 
+  SiReact, 
+  SiJavascript, 
+  SiCss3, 
+  SiHtml5, 
+  SiPhp, 
+  SiPostgresql, 
+  SiNodedotjs, 
+  SiGit 
+} from "react-icons/si";
 import Header from "./Header";
 import { useState, useEffect } from "react";
 import Hero3D from "./Hero3D";
 import Contact from "./Contact";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import LightRays from './LightRays';
+import Particles from './Particles';
+import GlassIcons from "./GlassIcons";
+import ProfileCard from './ProfileCard';
+import Galaxy from './Galaxy';
 
 export default function App() {
   const projects = [
@@ -72,7 +87,16 @@ const [selectedImage, setSelectedImage] = useState(null);
       desc: "Most Cooperative – Torres Technology Center Corporation"
     }
   ];
-
+const items = [
+  { icon: <SiReact color="#5bd9fcff" />, color: '#ffffffe5', label: 'React' },
+  { icon: <SiJavascript color="#F7DF1E" />, color: '#242424ff', label: 'JavaScript' },
+  { icon: <SiHtml5 color="#E34F26" />, color: '#ffffffe5', label: 'HTML5' },
+  { icon: <SiCss3 color="#1572B6" />, color: '#ffffffe5', label: 'CSS3' },
+  { icon: <SiPhp color="#000000ff" />, color: '#777BB4', label: 'PHP' },
+  { icon: <SiPostgresql color="#000000ff" />, color: '#4169E1', label: 'PostgreSQL' },
+  { icon: <SiNodedotjs color="#339933" />, color: '#ffffffe5', label: 'Node.js' },
+  { icon: <SiGit color="#F05032" />, color: '#ffffffe5', label: 'Git' },
+];
   useEffect(() => {
   AOS.init({ duration: 1000, once: false, mirror: true, anchorPlacement: "top-left" }); // 1000ms animation, only once
 }, []);
@@ -80,74 +104,115 @@ const [selectedImage, setSelectedImage] = useState(null);
   return (
     <div className="relative z-0 bg-primary portfolio">
       <Header />
-      {/* Hero Section */}
-     <Hero3D />
-
-  
+      <Hero3D />
+      <div>
+        <Particles
+    particleColors={['#ffffff', '#ffffff']}
+    particleCount={1000}
+    particleSpread={10}
+    speed={0.1}
+    particleBaseSize={300}
+    moveParticlesOnHover={true}
+    alphaParticles={false}
+    disableRotation={false}
+  />
       {/* About Section */}
       <div className="section-container">
+        {/* <Particles
+    particleColors={['#ffffff', '#ffffff']}
+    particleCount={200}
+    particleSpread={10}
+    speed={0.1}
+    particleBaseSize={100}
+    moveParticlesOnHover={true}
+    alphaParticles={false}
+    disableRotation={false}
+  /> */}
       <section className="section about" id="about" data-aos="fade-up">
         <div className="section-header">
-          <h2>Introduction</h2>
-          <h1>Overview</h1>
+        <h2>Introduction</h2>
+        <h1>Overview</h1>
         </div>
-        <p>
-          I'm a Software Engineer with experience in designing and developing
-          modern web applications. I love solving real-world problems with
-          clean, efficient code and creating beautiful user experiences.
-        </p>
+        <div className="about-content">
+          <div>
+      <ProfileCard
+  name=""
+  title="Serge De Guzman"
+  avatarUrl="/avatar.JPG"
+  enableTilt={true}
+  enableMobileTilt={true}
+  onContactClick={() => console.log('Contact clicked')}
+/>
+    </div>
+    
+          <div className="about-text">
+      
+          <p>
+        I'm a Software Engineer with experience in designing and developing
+        modern web applications. I love solving real-world problems with
+        clean, efficient code and creating beautiful user experiences.
+      </p>
+    </div>
+
+    
+  </div>
       </section>
       
       {/* Tech Stack Section */}
+      
       <section className="section tech-stack" data-aos="fade-left">
         <div className="section-header">
           <h2>Skills</h2>
           <h1>Tech Stacks</h1>
         </div>
-        <div className="glass">
-        <ul className="tech-list">
-          <li>⚛ React.js / Next.js</li>
-          <li> PHP / Laravel</li>
-          <li>⚡ JavaScript (ES6+)</li>
-          <li>🌐 Node.js / Express</li>
-          <li>🗄  MySQL</li>
-          <li>☁ Git / GitHub / Deployment</li>
-        </ul>
-        </div>
+          <GlassIcons items={items} /> 
       </section>
 
       {/* Work Experience Section */}
-      <section className="section experience" id="work" data-aos="fade-right">
-        <div className="section-header">
+      
+        {/* <Galaxy 
+    mouseRepulsion={true}
+    mouseInteraction={true}
+    density={1.5}
+    glowIntensity={0.5}
+    saturation={0.8}
+    hueShift={240}
+  /> */}
+      <section className="section experience" data-aos="fade-right">
+        <div className="section-header" id="work">
           <h2>Career</h2>
           <h1>Work Experience</h1>
         </div>
-        <div className="glass">
+        
         <div className="experience-list">
-          <div className="experience-item" data-aos="fade-up" data-aos-delay="100">
-            <h2>Information Technology Intern</h2>
-            <h3>Nordic Heel Unlimited, Inc.</h3>
-            <span className="period">January 2025 – February 2025</span>
-            <ul>
-              <li>Developed an IT asset and inventory management system, including database creation, UI setup, dashboard 
-                  visualization, and backend functionality. Debugged, fixed errors, and added functions in HR systems, the 
-                  application form, and the Manpower Requisition Form.</li>
-              <li>I received a job offer upon completion of the internship, recognizing my strong understanding of software 
-                  development, effective troubleshooting skills, adaptability, and collaborative work ethic.</li>
-              <li>Used PHP programming language, HTML5, CSS3, and phpMyAdmin.</li>
-            </ul>
-          </div>
-          <div className="experience-item" data-aos="fade-up" data-aos-delay="200">
-            <h2>Work Immersion Trainee, IT Department</h2>
-            <h3>Torres Technology Center Corporation.</h3>
-            <span className="period">November 2019 – December 2019</span>
-            <ul>
-              <li>Gained experience in C++ programming, focusing on best practices and proper naming conventions.</li>
-              <li>Awarded as "Most Responsible" and "Most Cooperative" for outstanding performance.</li>
-            </ul>
-          </div>
-        </div>
-        </div>
+  <div className="experience-item" data-aos="fade-up" data-aos-delay="100">
+    <h2>Information Technology Intern</h2>
+    <h3>Nordic Heel Unlimited, Inc.</h3>
+    <span className="period">January 2025 – February 2025</span>
+    <ul>
+      <li>
+        Developed an IT asset and inventory management system, including database creation, UI setup, dashboard
+        visualization, and backend functionality. Debugged, fixed errors, and added functions in HR systems, the
+        application form, and the Manpower Requisition Form.
+      </li>
+      <li>
+        I received a job offer upon completion of the internship, recognizing my strong understanding of software
+        development, effective troubleshooting skills, adaptability, and collaborative work ethic.
+      </li>
+      <li>Used PHP programming language, HTML5, CSS3, and phpMyAdmin.</li>
+    </ul>
+  </div>
+
+  <div className="experience-item" data-aos="fade-up" data-aos-delay="200">
+    <h2>Work Immersion Trainee, IT Department</h2>
+    <h3>Torres Technology Center Corporation</h3>
+    <span className="period">November 2019 – December 2019</span>
+    <ul>
+      <li>Gained experience in C++ programming, focusing on best practices and proper naming conventions.</li>
+      <li>Awarded as "Most Responsible" and "Most Cooperative" for outstanding performance.</li>
+    </ul>
+  </div>
+</div>   
       </section>
 
       {/* Project Section */}
@@ -156,7 +221,7 @@ const [selectedImage, setSelectedImage] = useState(null);
     <h2>Showcase</h2>
     <h1>My Projects</h1>
   </div>
-  <div className="glass">
+  
   <div className="project-grid">
     {projects.map((project, index) => (
       <div key={index} className="project-card" data-aos="zoom-in" data-aos-delay={index * 100}>
@@ -205,18 +270,17 @@ const [selectedImage, setSelectedImage] = useState(null);
       </div>
     ))}
   </div>
-  </div>
 </section>
 </div>
 
       {/* Achievements Section */}
-      <section className="section achievements" data-aos="fade-up">
+      <section className="section achievements" >
         <div className="section-header">
           <h2>Milestones</h2>
           <h1>Achievements & Certifications</h1>
         </div>
 
-        <div className="achievements-gallery">
+        <div className="achievements-gallery" data-aos="fade-up">
           {certificates.map((cert, i) => (
             <div class="achievements-card" onClick={() => setSelectedImage(cert.src)}>
             <div class="achievements-content">
@@ -241,7 +305,7 @@ const [selectedImage, setSelectedImage] = useState(null);
 
 
       {/* Contact Section */}
-      <Contact data-aos="fade-up"/>
+      <Contact />
 
       {/* Footer */}
       <footer className="footer" >
@@ -253,6 +317,7 @@ const [selectedImage, setSelectedImage] = useState(null);
           <a href="#"><FaTwitter /></a>
         </div>
       </footer>
+    </div>
     </div>
   );
 }

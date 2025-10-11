@@ -29,13 +29,13 @@ export default function Contact() {
   
 
   return (
-    <section className="section contact" id="contact" data-aos="fade-up">
-      <div className="section-header connect">
+    <section className="section contact"  >
+      <div className="section-header connect" id="contact">
         <h2>Connect</h2>
         <h1>Contact Me</h1>
       </div>
       <div className="contact-container">
-        <form ref={form} onSubmit={sendEmail} className="contact-form">
+        <form ref={form} onSubmit={sendEmail} className="contact-form" data-aos="fade-up">
           <div className="form-group subject">
            <label htmlFor="subject">Subject</label>
            <input
