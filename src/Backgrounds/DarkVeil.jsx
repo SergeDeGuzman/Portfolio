@@ -78,7 +78,7 @@ export default function DarkVeil({
   noiseIntensity = 0,
   scanlineIntensity = 1,
   speed = 2,
-  scanlineFrequency = 4,
+  scanlineFrequency = 2,
   warpAmount = 0,
   resolutionScale = 1
 }) {
