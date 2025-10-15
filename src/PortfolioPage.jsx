@@ -195,7 +195,7 @@ export default function App() {
                                         Received a job offer upon internship completion in recognition of strong software development skills, demonstrated adaptability, and a collaborative work ethic.
                                     </li>
                                     <li>
-                                        Programming and tools: PHP, HTML5, CSS3, PhpMyAdmin, XAMPP, Visual Studio Code.
+                                        Programming and Tools: PHP, HTML5, CSS3, PhpMyAdmin, XAMPP, Visual Studio Code.
                                     </li>
                                 </ul>
                             </div>
