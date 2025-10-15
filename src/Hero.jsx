@@ -5,16 +5,14 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import DarkVeil from "./Backgrounds/DarkVeil";
 import RotatingText from "./Components/RotatingText";
 
-/* CameraController: updates the live three.js camera when fov changes */
 function CameraController({ fov, position = [0, 0, 11] }) {
   const { camera } = useThree();
   useEffect(() => {
     camera.fov = fov;
-    camera.updateProjectionMatrix(); // required after changing fov
+    camera.updateProjectionMatrix(); 
   }, [fov, camera]);
 
   useEffect(() => {
-    // ensure camera position set once (optional)
     camera.position.set(position[0], position[1], position[2]);
   }, [camera, position]);
 
@@ -61,24 +59,24 @@ function Model({ url }) {
 }
 
 export default function Hero() {
-  const [fov, setFov] = useState(70); // default FOV
+  const [fov, setFov] = useState(70); 
 
   useEffect(() => {
     const updateFov = () => {
-      if (window.innerWidth < 480) setFov(50); // phones
-      else if (window.innerWidth < 768) setFov(40); // tablets
-      else if (window.innerWidth < 1024) setFov(40); // small desktops
-      else if (window.innerWidth < 1448) setFov(75); // small desktops
-      else setFov(75); // large screens
+      if (window.innerWidth < 480) setFov(50); 
+      else if (window.innerWidth < 768) setFov(40); 
+      else if (window.innerWidth < 1024) setFov(40); 
+      else if (window.innerWidth < 1448) setFov(75); 
+      else setFov(75); 
     };
 
-    updateFov(); // initial run
+    updateFov(); 
     window.addEventListener("resize", updateFov);
     return () => window.removeEventListener("resize", updateFov);
   }, []);
 
   return (
-    <section className="hero" id="hero" data-aos="fade-down">
+    <section className="hero" id="hero" >
       <DarkVeil />
       <div className="hero-container">
       <div className="hero-content">
@@ -115,7 +113,6 @@ export default function Hero() {
       </div>
 
       <div className="hero-model">
-        {/* CameraController is a child of Canvas so it can access the live camera */}
         <Canvas>
           <CameraController fov={fov} position={[0, 0, 11]} />
           <ambientLight intensity={2} />

@@ -38,7 +38,6 @@ export default function Contact() {
                     ref={form}
                     onSubmit={sendEmail}
                     className="contact-form"
-                    data-aos="fade-up"
                 >
                     <div className="form-group subject">
                         <label htmlFor="subject">Subject</label>

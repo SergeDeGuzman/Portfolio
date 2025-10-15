@@ -165,7 +165,7 @@ export default function App() {
                     </section>
 
                     {/* Tech Stack Section */}
-                    <section className="section tech-stack" data-aos="fade-left">
+                    <section className="section tech-stack">
                         <div className="section-header">
                             <h2>Skills</h2>
                             <h1>Tech Stacks</h1>
@@ -217,7 +217,7 @@ export default function App() {
                     </section>
 
                     {/* Project Section */}
-                    <section className="section project" data-aos="fade-up">
+                    <section className="section project">
                         <div className="section-header">
                             <h2>Showcase</h2>
                             <h1>My Projects</h1>
@@ -229,9 +229,7 @@ export default function App() {
                                     <div
                                         key={index}
                                         className="project-card"
-                                        data-aos="zoom-in"
-                                        data-aos-delay={index * 100}
-                                    >
+                                        data-aos="zoom-in">
                                         {isVideo
                                             ? <video src={project.src} className="project-media" autoPlay loop muted playsInline />
                                             : <img src={project.src} alt={project.title} className="project-media" />
@@ -266,7 +264,7 @@ export default function App() {
                             <h2>Milestones</h2>
                             <h1>Achievements & Certifications</h1>
                         </div>
-                        <div className="achievements-gallery" data-aos="fade-up">
+                        <div className="achievements-gallery">
                             {certificates.map((cert, i) => (
                                 <div
                                     key={i}
