@@ -6,7 +6,9 @@ import {
     SiPhp, 
     SiPostgresql, 
     SiNodedotjs, 
-    SiGit 
+    SiExpress, 
+    SiGit,  
+    SiPostman 
 } from "react-icons/si";
 import NavBar from "./NavBar";
 import { useState, useEffect } from "react";
@@ -22,9 +24,9 @@ export default function App() {
     const projects = [
         {
             title: "Survey/Questionnaire Application",
-            description: "A personal portfolio built with React and Tailwind CSS.",
+            description: "A Laravel-based web application designed to create, manage, and view surveys or questionnaires.",
             link: "https://your-portfolio.com",
-            tags: ["PHP", "Laravel","MySQL"],
+            tags: ["Html","Css","PHP", "Laravel","PhpMyAdmin"],
             buttons: [
                 { text: "View More", url: "https://github.com/SergeDeGuzman/Survey-App" }
             ],
@@ -32,9 +34,9 @@ export default function App() {
         },
         {
             title: "Paper Recyclability Detection Using YOLOv8",
-            description: "A full-stack shopping platform with cart and checkout features.",
+            description: "A real-time object detection and classification model using YOLOv8 for identifying recyclable paper based on predefined criteria and limitations.",
             link: "https://github.com/yourname/ecommerce-app",
-            tags: ["Python", "Pytorch","TensorFlow","OpenCV"],  
+            tags: ["Python", "Pytorch","Roboflow"],  
             buttons: [
                 { text: "View More", url: "https://github.com/SergeDeGuzman/Paper-Recyclability-Detection" },
                 { text: "Try Model", url: "https://universe.roboflow.com/serge-de-guzman-and-christian-gomez/paper-recyclability-detection/model/5" }
@@ -44,6 +46,8 @@ export default function App() {
     ];
 
     const tagColors = {
+        Html:"linear-gradient(135deg, #E34F26)",
+        Css:"linear-gradient(135deg, #1572B6)",
         React: "linear-gradient(135deg, #3b82f6, #2563eb)",
         Tailwind: "linear-gradient(135deg, #06b6d4, #0ea5e9)",
         Nodejs: "linear-gradient(135deg, #22c55e, #16a34a)",
@@ -51,12 +55,14 @@ export default function App() {
         MongoDB: "linear-gradient(135deg, #10b981, #059669)",
         Stripe: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
         PHP: "linear-gradient(135deg, #474A8A)",
+        PhpMyAdmin:"linear-gradient(135deg, #6C78AF, #F89C0E)",
         Laravel: "linear-gradient(135deg, #F05340, #6C6C6C)",
         MySQL: "linear-gradient(135deg, #00758F, #F29111)",
         Python: "linear-gradient(135deg, #306998, #FFD43B)",
         Pytorch: "linear-gradient(135deg, #EE4C2C, #EE4C2C)",
         TensorFlow: "linear-gradient(135deg, #FF6F00, #FF6F00)",
         OpenCV: "linear-gradient(135deg, #FF0000, #0000FF)",
+        Roboflow: "linear-gradient(135deg, #6706CE)",
         Default: "linear-gradient(135deg, #a855f7, #6366f1)",
     };
 
@@ -86,14 +92,16 @@ export default function App() {
     ];
 
     const items = [
-        { icon: <SiReact color="#5bd9fcff" />, color: '#ffffffe5', label: 'React' },
-        { icon: <SiJavascript color="#F7DF1E" />, color: '#242424ff', label: 'JavaScript' },
         { icon: <SiHtml5 color="#E34F26" />, color: '#ffffffe5', label: 'HTML5' },
         { icon: <SiCss3 color="#1572B6" />, color: '#ffffffe5', label: 'CSS3' },
-        { icon: <SiPhp color="#000000ff" />, color: '#777BB4', label: 'PHP' },
+        { icon: <SiJavascript color="#F7DF1E" />, color: '#242424ff', label: 'JavaScript' },
+        { icon: <SiReact color="#5bd9fcff" />, color: '#ffffffe5', label: 'React' },
+        { icon: <SiNodedotjs color="#339933" />, color: '#ffffffe5', label: 'Node.js' },    
+        { icon: <SiExpress color="#ffffffe5" />, color: '#242424ff', label: 'Express.js' },
+        { icon: <SiPhp color="#777BB4" />, color: '#ffffffe5', label: 'PHP' },
         { icon: <SiPostgresql color="#000000ff" />, color: '#4169E1', label: 'PostgreSQL' },
-        { icon: <SiNodedotjs color="#339933" />, color: '#ffffffe5', label: 'Node.js' },
         { icon: <SiGit color="#F05032" />, color: '#ffffffe5', label: 'Git' },
+        { icon: <SiPostman color="#EF5B25" />, color: '#ffffffe5', label: 'Postman' },
     ];
 
     useEffect(() => {
@@ -134,16 +142,25 @@ export default function App() {
                                     onContactClick={() => console.log('Contact clicked')}
                                 />
                             </div>
+                            <div className="about-container">
                             <div className="about-text">
                                 <p>
-                                    I'm a Software Engineer with experience in designing and developing
-                                    modern web applications. I love solving real-world problems with
-                                    clean, efficient code and creating beautiful user experiences.
+                                    I graduated Cum Laude with a degree in Computer Science from National University Laguna.
+                                    I’m passionate about continuous learning and adapting to new challenges. My journey began 
+                                    with HTML, CSS, and PHP, and has since expanded to include JavaScript, React, and other modern 
+                                    web technologies.
                                 </p>
-                                <a href="/SergeTrever_CV.pdf" download className="download-btn">
+                                <br></br>
+                                <p>
+                                    In the course of working in different companies, I've gained the value of teamwork, flexibility, 
+                                    and persistent improvement. All these experiences pushed me to develop further and even resulted 
+                                    in recognitions that I'm really proud of. I keep on practicing, discovering, and striving to be better day by day.
+                                </p>
+                            </div>
+                            <a href="/Serge-De-Guzman_CV.pdf" download className="download-btn">
                                     DOWNLOAD CV
                                 </a>
-                            </div>
+                        </div>
                         </div>
                     </section>
 
@@ -169,15 +186,17 @@ export default function App() {
                                 <span className="period">January 2025 – February 2025</span>
                                 <ul>
                                     <li>
-                                        Developed an IT asset and inventory management system, including database creation, UI setup, dashboard
-                                        visualization, and backend functionality. Debugged, fixed errors, and added functions in HR systems, the
-                                        application form, and the Manpower Requisition Form.
+                                        Developed an IT asset and inventory management system with database, UI, dashboard visualization, and backend functionality.
                                     </li>
                                     <li>
-                                        I received a job offer upon completion of the internship, recognizing my strong understanding of software
-                                        development, effective troubleshooting skills, adaptability, and collaborative work ethic.
+                                        Debugged, and enhanced the company’s HR system, application, and manpower requisition form.
                                     </li>
-                                    <li>Used PHP programming language, HTML5, CSS3, and phpMyAdmin.</li>
+                                    <li>
+                                        Received a job offer upon internship completion in recognition of strong software development skills, demonstrated adaptability, and a collaborative work ethic.
+                                    </li>
+                                    <li>
+                                        Programming and tools: PHP, HTML5, CSS3, PhpMyAdmin, XAMPP, Visual Studio Code.
+                                    </li>
                                 </ul>
                             </div>
 
@@ -186,8 +205,12 @@ export default function App() {
                                 <h3>Torres Technology Center Corporation</h3>
                                 <span className="period">November 2019 – December 2019</span>
                                 <ul>
-                                    <li>Gained experience in C++ programming, focusing on best practices and proper naming conventions.</li>
-                                    <li>Awarded as "Most Responsible" and "Most Cooperative" for outstanding performance.</li>
+                                    <li>
+                                        Practiced basic command lines and C++ with a focus on best practices, work ethics, and proper naming conventions.
+                                    </li>
+                                    <li>
+                                        Commended for exceptional performance, receiving "Most Responsible" and "Most Cooperative" for outstanding awards.
+                                    </li>
                                 </ul>
                             </div>
                         </div>   
