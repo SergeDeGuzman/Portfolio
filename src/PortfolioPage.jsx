@@ -126,13 +126,13 @@ export default function App() {
 
                 {/* About Section */}
                 <div className="section-container">
-                    <section className="section about" id="about" data-aos="fade-up">
-                        <div className="section-header">
+                    <section className="section about">
+                        <div className="section-header" id="about" data-aos="fade-right">
                             <h2>Introduction</h2>
                             <h1>About Me</h1>
                         </div>
                         <div className="about-content">
-                            <div>
+                            <div data-aos="fade-up">
                                 <ProfileCard
                                     name=""
                                     title="Serge De Guzman"
@@ -143,7 +143,7 @@ export default function App() {
                                 />
                             </div>
                             <div className="about-container">
-                            <div className="about-text">
+                            <div className="about-text" data-aos="fade-left" data-aos-delay="200">
                                 <p>
                                     I graduated Cum Laude with a degree in Computer Science from National University Laguna.
                                     I’m passionate about continuous learning and adapting to new challenges. My journey began 
@@ -157,7 +157,7 @@ export default function App() {
                                     in recognitions that I'm really proud of. I keep on practicing, discovering, and striving to be better day by day.
                                 </p>
                             </div>
-                            <a href="/Serge-De-Guzman_CV.pdf" download className="download-btn">
+                            <a href="/Serge-De-Guzman_CV.pdf" download className="download-btn" data-aos="fade-up">
                                     DOWNLOAD CV
                                 </a>
                         </div>
@@ -166,7 +166,7 @@ export default function App() {
 
                     {/* Tech Stack Section */}
                     <section className="section tech-stack">
-                        <div className="section-header">
+                        <div className="section-header" data-aos="fade-left">
                             <h2>Skills</h2>
                             <h1>Tech Stacks</h1>
                         </div>
@@ -218,7 +218,7 @@ export default function App() {
 
                     {/* Project Section */}
                     <section className="section project">
-                        <div className="section-header">
+                        <div className="section-header" data-aos="zoom-in" >
                             <h2>Showcase</h2>
                             <h1>My Projects</h1>
                         </div>
@@ -229,7 +229,8 @@ export default function App() {
                                     <div
                                         key={index}
                                         className="project-card"
-                                        data-aos="zoom-in">
+                                        data-aos="zoom-in"
+                                        data-aos-delay="400">
                                         {isVideo
                                             ? <video src={project.src} className="project-media" autoPlay loop muted playsInline />
                                             : <img src={project.src} alt={project.title} className="project-media" />
@@ -260,7 +261,7 @@ export default function App() {
 
                     {/* Achievements Section */}
                     <section className="section achievements">
-                        <div className="section-header">
+                        <div className="section-header" data-aos="fade-up">
                             <h2>Milestones</h2>
                             <h1>Achievements & Certifications</h1>
                         </div>

@@ -35,6 +35,8 @@ export default function NavBar() {
                 behavior: 'smooth',
             });
 
+            setIsOpen(false);
+            
             // Refresh AOS after smooth scroll
             setTimeout(() => AOS.refresh(), 600);
         }
@@ -43,7 +45,7 @@ export default function NavBar() {
     return (
         <header className="sm:px-16 w-full flex justify-center fixed navbar">
             <div
-                className={`z-50 transition-colors duration-500 ${
+                className={`transition-colors duration-500 ${
                     scrolled
                         ? "80 backdrop-blur-md shadow-md nav-container"
                         : "bg-transparent nav-container"

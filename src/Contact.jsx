@@ -28,7 +28,7 @@ export default function Contact() {
 
     return (
         <section className="section contact">
-            <div className="section-header connect" id="contact">
+            <div className="section-header connect" id="contact" data-aos="fade-right"> 
                 <h2>Connect</h2>
                 <h1>Contact Me</h1>
             </div>
@@ -38,6 +38,7 @@ export default function Contact() {
                     ref={form}
                     onSubmit={sendEmail}
                     className="contact-form"
+                    data-aos="fade-up"
                 >
                     <div className="form-group subject">
                         <label htmlFor="subject">Subject</label>
