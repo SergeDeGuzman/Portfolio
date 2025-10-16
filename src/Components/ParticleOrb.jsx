@@ -5,12 +5,11 @@ const ParticleOrb = () => {
 
   useEffect(() => {
     const total = 300;
-    const orbSize = 100; // px
-    const time = 14; // seconds
-    const baseHue = 0; // try 180 for blue tones
+    const orbSize = window.innerWidth < 768 ? 60 : 100; // smaller orb on mobile
+    const time = window.innerWidth < 768 ? 18 : 14; // slightly slower animation on mobile
+    const baseHue = 0;
     const wrap = wrapRef.current;
 
-    // Get or create a <style> tag to inject keyframes
     let styleSheet = document.getElementById("particle-orb-styles");
     if (!styleSheet) {
       styleSheet = document.createElement("style");
@@ -18,7 +17,8 @@ const ParticleOrb = () => {
       document.head.appendChild(styleSheet);
     }
 
-    // Generate particles
+    const rules = [];
+
     for (let i = 1; i <= total; i++) {
       const div = document.createElement("div");
       div.classList.add("c");
@@ -28,36 +28,54 @@ const ParticleOrb = () => {
       const hue = ((40 / total) * i) + baseHue;
 
       div.style.backgroundColor = `hsla(${hue}, 100%, 50%, 1)`;
-      div.style.animation = `orbit${i} ${time}s infinite`;
+      div.style.animation = `orbit${i} ${time}s linear infinite`;
       div.style.animationDelay = `${i * 0.01}s`;
+      div.style.willChange = "transform, opacity"; 
 
-      // Create unique keyframes for each particle
-      const keyframes = `
+      rules.push(`
         @keyframes orbit${i} {
           20% { opacity: 1; }
           30% {
-            transform: rotateZ(-${z}deg) rotateY(${y}deg) translateX(${orbSize}px) rotateZ(${z}deg);
+            transform: rotateZ(-${z}deg) rotateY(${y}deg)
+                       translateX(${orbSize}px) rotateZ(${z}deg);
           }
           80% {
-            transform: rotateZ(-${z}deg) rotateY(${y}deg) translateX(${orbSize}px) rotateZ(${z}deg);
+            transform: rotateZ(-${z}deg) rotateY(${y}deg)
+                       translateX(${orbSize}px) rotateZ(${z}deg);
             opacity: 1;
           }
           100% {
-            transform: rotateZ(-${z}deg) rotateY(${y}deg) translateX(${orbSize * 3}px) rotateZ(${z}deg);
+            transform: rotateZ(-${z}deg) rotateY(${y}deg)
+                       translateX(${orbSize * 3}px) rotateZ(${z}deg);
           }
-        }`;
-      styleSheet.sheet.insertRule(keyframes, styleSheet.sheet.cssRules.length);
+        }
+      `);
 
       wrap.appendChild(div);
     }
 
+    const sheet = styleSheet.sheet;
+    rules.forEach((r) => sheet.insertRule(r, sheet.cssRules.length));
+
     return () => {
-      // Cleanup — remove all child divs and custom rules
       wrap.innerHTML = "";
     };
   }, []);
 
-  return <div className="wrap" ref={wrapRef}></div>;
+  return (
+    <div
+      className="wrap"
+      ref={wrapRef}
+      style={{
+        width: "200px",
+        height: "200px",
+        position: "relative",
+        margin: "auto",
+        transformStyle: "preserve-3d",
+        perspective: "1000px",
+      }}
+    ></div>
+  );
 };
 
 export default ParticleOrb;

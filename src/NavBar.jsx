@@ -49,11 +49,7 @@ export default function NavBar() {
                         : "bg-transparent nav-container"
                 }`}
             >
-                <a
-                    href="#hero"
-                    className="logo"
-                    onClick={(e) => handleNavClick(e, '#hero')}
-                >
+                <a href="#hero" className="logo" onClick={(e) => handleNavClick(e, '#hero')}>
                     SERGE DE GUZMAN
                 </a>
 

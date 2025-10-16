@@ -46,15 +46,15 @@ export default function App() {
     ];
 
     const tagColors = {
-        Html:"linear-gradient(135deg, #E34F26)",
-        Css:"linear-gradient(135deg, #1572B6)",
+        Html:" #E34F26",
+        Css:"#1572B6",
         React: "linear-gradient(135deg, #3b82f6, #2563eb)",
         Tailwind: "linear-gradient(135deg, #06b6d4, #0ea5e9)",
         Nodejs: "linear-gradient(135deg, #22c55e, #16a34a)",
         Express: "linear-gradient(135deg, #111827, #1f2937)",
         MongoDB: "linear-gradient(135deg, #10b981, #059669)",
         Stripe: "linear-gradient(135deg, #8b5cf6, #7c3aed)",
-        PHP: "linear-gradient(135deg, #474A8A)",
+        PHP: " #474A8A",
         PhpMyAdmin:"linear-gradient(135deg, #6C78AF, #F89C0E)",
         Laravel: "linear-gradient(135deg, #F05340, #6C6C6C)",
         MySQL: "linear-gradient(135deg, #00758F, #F29111)",
@@ -62,7 +62,7 @@ export default function App() {
         Pytorch: "linear-gradient(135deg, #EE4C2C, #EE4C2C)",
         TensorFlow: "linear-gradient(135deg, #FF6F00, #FF6F00)",
         OpenCV: "linear-gradient(135deg, #FF0000, #0000FF)",
-        Roboflow: "linear-gradient(135deg, #6706CE)",
+        Roboflow: "#6706CE",
         Default: "linear-gradient(135deg, #a855f7, #6366f1)",
     };
 
