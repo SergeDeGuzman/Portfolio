@@ -13,6 +13,7 @@ import {
 import NavBar from "./NavBar";
 import { useState, useEffect } from "react";
 import Hero from "./Hero";
+import { Eye, Download } from "lucide-react";
 import Contact from "./Contact";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -157,9 +158,14 @@ export default function App() {
                                     in recognitions that I'm really proud of. I keep on practicing, discovering, and striving to be better day by day.
                                 </p>
                             </div>
-                            <a href="/Serge-De-Guzman_CV.pdf" download className="download-btn" data-aos="fade-up">
-                                    DOWNLOAD CV
-                                </a>
+                                <div className="resume-container">
+                                    <a href="/Serge-De-Guzman_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn-resume view" data-aos="fade-up">
+                                    View Resume<Eye size={18}></Eye>
+                                    </a>
+                                    <a href="/Serge-De-Guzman_Resume.pdf" download className="btn-resume download" data-aos="fade-up">
+                                    Download Resume<Download size={18}></Download>
+                                    </a>
+                                </div>
                         </div>
                         </div>
                     </section>
